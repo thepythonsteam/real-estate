@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-df_poi = pd.read_csv('/Users/a19329895/Downloads/фичи/data/df_poi_new.csv', sep='|')
+df_poi = pd.read_csv('../data/df_poi.csv', sep='|')
 
 poi_classes = df_poi['type'].unique()
 most_popular_pois = list(df_poi['name'].value_counts()[:15].index)
