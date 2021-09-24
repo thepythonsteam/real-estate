@@ -1,6 +1,7 @@
 import argparse
 import logging.config
 import pandas as pd
+import zipfile
 from raif_hack.features import prepare_categorical
 from traceback import format_exc
 
@@ -38,7 +39,9 @@ if __name__ == "__main__":
         logger.info('START predict.py')
         args = vars(parse_args())
         logger.info('Load test df')
-        test_df = pd.read_csv(args['d'])
+#         test_df = pd.read_csv(args['d'])
+        zip_file = zipfile.ZipFile(args['d'])
+        test_df = pd.read_csv(zip_file.open(zip_file.namelist()[0]))
         logger.info(f'Input shape: {test_df.shape}')
         test_df = prepare_categorical(test_df)
 

@@ -2,6 +2,10 @@ import argparse
 import logging.config
 import pandas as pd
 from traceback import format_exc
+import zipfile
+
+# import sys
+# sys.path.append('../')
 
 from raif_hack.model import BenchmarkModel
 from raif_hack.settings import MODEL_PARAMS, LOGGING_CONFIG, NUM_FEATURES, CATEGORICAL_OHE_FEATURES,CATEGORICAL_STE_FEATURES,TARGET
@@ -38,7 +42,9 @@ if __name__ == "__main__":
         logger.info('START train.py')
         args = vars(parse_args())
         logger.info('Load train df')
-        train_df = pd.read_csv(args['d'])
+#         train_df = pd.read_csv(args['d'], compression='zip')
+        zip_file = zipfile.ZipFile(args['d'])
+        train_df = pd.read_csv(zip_file.open(zip_file.namelist()[0]))
         logger.info(f'Input shape: {train_df.shape}')
         train_df = prepare_categorical(train_df)
 
