@@ -1,0 +1,21 @@
+.card {
+    max-width: 960px;
+    margin: 0 auto;
+    font-size: 15px;
+
+    &__title {
+        margin: 0 0 16px 4px;
+        font-size: 26px;
+        line-height: 34px;
+    }
+
+    &__inner {
+        padding: 24px;
+        border-radius: 14px;
+        background: white;
+    }
+
+    & + & {
+        margin-top: 40px;
+    }
+}

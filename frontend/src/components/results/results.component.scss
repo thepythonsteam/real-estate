@@ -1,0 +1,31 @@
+.results {
+    padding: 40px 0;
+
+    &__price {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    &__factor {
+        &s {
+            display: flex;
+
+            &-list {
+                list-style: none;
+                padding-inline-start: 28px;
+                flex: 1 1 50%;
+
+                &-title {
+                    margin-left: -28px;
+                    font-size: 18px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                &-icon {
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+}
