@@ -17,7 +17,7 @@ const HeatLayer: FC<HeatLayerProps> = ({ color, coordinates }) => {
     useEffect(() => {
         // @ts-ignore
         const layer = L.TileLayer.maskCanvas({
-            radius: 150, // radius in pixels or in meters (see useAbsoluteRadius)
+            radius: 100, // radius in pixels or in meters (see useAbsoluteRadius)
             useAbsoluteRadius: true, // true: r in meters, false: r in pixels
             color, // the color of the layer
             opacity: 0.5, // opacity of the not covered area

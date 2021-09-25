@@ -4,6 +4,7 @@ import numpy as np
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from typing import Optional
 
 from get_heatmap_data import get_heatmap_data
 
@@ -30,11 +31,13 @@ app.add_middleware(
 
 class PredictRequestDto(BaseModel):
     address: str
+    floor: Optional[int] = None
+    area: Optional[float] = None
 
 
 @app.post('/predict')
 async def predict(dto: PredictRequestDto):
-    # TODO use real model
+    # TODO use dto & real model
     loaded_model.predict(np.array([[3, 5]]))
 
     return {
