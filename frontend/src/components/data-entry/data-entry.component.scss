@@ -1,9 +1,9 @@
 @import '../../assets/styles/common/colors.scss';
 
 .data-entry {
+    min-height: 100vh;
+    transition: min-height 0.3s;
     padding: 80px;
-    flex: 1 1 auto;
-    min-height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;

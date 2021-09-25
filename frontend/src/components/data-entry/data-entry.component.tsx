@@ -1,13 +1,14 @@
 import { Button, Form, Input } from 'antd';
-import { CSSProperties, memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import './data-entry.component.scss';
+import cn from 'classnames';
 
 type DataEntryProps = {
     onSubmit: (address: string) => void;
-    style?: CSSProperties;
+    className?: string;
 };
 
-export const DataEntry = memo<DataEntryProps>(({ style, onSubmit }) => {
+export const DataEntry = memo<DataEntryProps>(({ className, onSubmit }) => {
     const onSubmitAddress = useCallback(
         (values) => {
             onSubmit(values.address);
@@ -16,7 +17,7 @@ export const DataEntry = memo<DataEntryProps>(({ style, onSubmit }) => {
     );
 
     return (
-        <div style={style} className='data-entry'>
+        <div className={cn('data-entry', className)}>
             <Form className='data-entry__form' onFinish={onSubmitAddress}>
                 <Form.Item name='address' className='data-entry__input'>
                     <Input placeholder='Введите адрес' />
