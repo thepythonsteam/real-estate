@@ -53,17 +53,18 @@ NUM_FEATURES = ['lat', 'lng', 'osm_amenity_points_in_0.001',
        'poi_n_Alfa-Bank', 'poi_closest_Alfa-Bank', 'poi_n_r0.002', 'poi_n_bus_stop_r0.002',
        'poi_n_cafe_r0.002', 'poi_n_supermarket_r0.002', 'poi_n_atm_r0.002', 'poi_n_bank_r0.002',
        'poi_n_clothes_r0.002', 'poi_n_fast_food_r0.002', 'poi_n_hairdresser_r0.002',
-       'poi_n_restaurant_r0.002', 'poi_n_tram_stop_r0.002']
+       'poi_n_restaurant_r0.002', 'poi_n_tram_stop_r0.002', 'avg_salary_12_2020', 'cnt_active_company',
+       'population']
 
 MODEL_PARAMS = dict(
-            n_estimators=2000,
+            n_estimators=6000,
             learning_rate=0.01,
             reg_alpha=1,
-            num_leaves=40,
-            min_child_samples=5,
+            num_leaves=60,
+            min_child_samples=6,
             importance_type="gain",
             n_jobs=1,
-            random_state=563,
+            random_state=42,
         )
 
 LOGGING_CONFIG = {
