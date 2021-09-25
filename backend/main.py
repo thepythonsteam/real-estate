@@ -5,14 +5,20 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-loaded_model = pickle.load(open('model.sav', 'rb'))
-app = FastAPI()
+from get_heatmap_data import get_heatmap_data
 
+# Get data for heatmap
+heatmap_data = get_heatmap_data()
+
+# Get model
+loaded_model = pickle.load(open('model.sav', 'rb'))
+
+# Configure the server
+app = FastAPI()
 origins = [
     "http://localhost",
     "http://localhost:3000"
 ]
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -38,5 +44,5 @@ async def predict(dto: PredictRequestDto):
             'positive': [{'name': 'толчок'}],
             'negative': [{'name': 'жучок'}, {'name': 'паучок'}]
         },
-        'mapData': {}
+        'mapData': heatmap_data
     }

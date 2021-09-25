@@ -1,17 +1,19 @@
 import { Skeleton, Tag } from 'antd';
 import React, { memo } from 'react';
 import { Card } from '../card/card.component';
+import { Map, MapProps } from '../map/map.component';
 import './results.component.scss';
 
 export type ResultsProps = {
     loading: boolean;
     data: {
+        address: string;
         price: string;
         factors: {
             positive: { name: string }[];
             negative: { name: string }[];
         };
-        mapData: {};
+        mapData: MapProps['data'];
     };
 };
 
@@ -68,11 +70,12 @@ export const Results = memo<ResultsProps>(({ loading, data }) => {
                         </ul>
                     </div>
                 </Card>
-                <Card title='На карте'>
-                    <span role='img' aria-label='map'>
-                        🗺📍
-                    </span>
-                </Card>
+
+                {data.mapData && (
+                    <Card title='На карте'>
+                        <Map address={data.address} data={data.mapData} />
+                    </Card>
+                )}
             </>
         );
     }
