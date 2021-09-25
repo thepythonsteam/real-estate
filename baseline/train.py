@@ -42,9 +42,9 @@ if __name__ == "__main__":
         logger.info('START train.py')
         args = vars(parse_args())
         logger.info('Load train df')
-#         train_df = pd.read_csv(args['d'], compression='zip')
-        zip_file = zipfile.ZipFile(args['d'])
-        train_df = pd.read_csv(zip_file.open(zip_file.namelist()[0]))
+        train_df = pd.read_csv(args['d'], compression='zip')
+#         zip_file = zipfile.ZipFile(args['d'])
+#         train_df = pd.read_csv(zip_file.open(zip_file.namelist()[0]))
         logger.info(f'Input shape: {train_df.shape}')
         train_df = prepare_categorical(train_df)
 
