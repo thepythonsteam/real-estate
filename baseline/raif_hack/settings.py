@@ -54,7 +54,7 @@ NUM_FEATURES = ['lat', 'lng', 'osm_amenity_points_in_0.001',
        'poi_n_cafe_r0.002', 'poi_n_supermarket_r0.002', 'poi_n_atm_r0.002', 'poi_n_bank_r0.002',
        'poi_n_clothes_r0.002', 'poi_n_fast_food_r0.002', 'poi_n_hairdresser_r0.002',
        'poi_n_restaurant_r0.002', 'poi_n_tram_stop_r0.002', 'avg_salary_12_2020', 'cnt_active_company',
-       'population']
+       'population', '1_quarter_2020_flat_price', 'salary_per_life_min']
 
 MODEL_PARAMS = dict(
             n_estimators=6000,
