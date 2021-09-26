@@ -1,0 +1,87 @@
+{
+    "extends": [
+        "react-app",
+        "prettier",
+        "plugin:jsx-a11y/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "env": {
+        "browser": true,
+        "jest": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "project": "./tsconfig.json",
+        "ecmaFeatures": {
+            "modules": true
+        }
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "prettier",
+        "react-hooks",
+        "jsx-a11y"
+    ],
+    "rules": {
+        "prettier/prettier": [
+            "error"
+        ],
+        "no-duplicate-imports": "error",
+        "no-console": "off",
+        "no-param-reassign": "off",
+        "no-return-assign": [
+            "error",
+            "except-parens"
+        ],
+        "@typescript-eslint/no-unused-expressions": [
+            "error",
+            {
+                "allowShortCircuit": true,
+                "allowTernary": true
+            }
+        ],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "react/prefer-stateless-function": "off",
+        "react/jsx-uses-react": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-filename-extension": "off",
+        "react/jsx-indent": "off",
+        "import/prefer-default-export": "off",
+        "react/no-array-index-key": "off",
+        "react/jsx-wrap-multilines": "off",
+        "react/forbid-prop-types": "off",
+        "react/jsx-indent-props": "off",
+        "react/jsx-curly-newline": "off",
+        "react/require-default-props": "off",
+        "react/jsx-props-no-spreading": "off",
+        "spaced-comment": [
+            "error",
+            "always",
+            {
+                "markers": [
+                    "/"
+                ]
+            }
+        ],
+        "react/prop-types": "off",
+        "@typescript-eslint/indent": "off",
+        "@typescript-eslint/quotes": "off",
+        "no-underscore-dangle": "off",
+        "import/no-named-as-default": "off",
+        "import/no-cycle": "off",
+        "jsx-quotes": [
+            "error",
+            "prefer-single"
+        ],
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "no-plusplus": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/no-static-element-interactions": "off",
+        "jsx-a11y/no-autofocus": "off"
+    }
+}

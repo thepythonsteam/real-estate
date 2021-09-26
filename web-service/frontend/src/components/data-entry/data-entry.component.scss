@@ -1,0 +1,134 @@
+@import '../../assets/styles/common/colors.scss';
+
+.data-entry {
+    min-height: 100vh;
+    transition: min-height 0.3s;
+    padding: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #52c41a, $blue-2);
+
+    .ant-badge-count {
+        right: 10px;
+    }
+
+    &__form {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        max-width: 960px;
+        background: white;
+        padding: 12px;
+        border-radius: 6px;
+
+        .ant-form-item {
+            margin-bottom: 0;
+        }
+    }
+
+    &__input {
+        flex: 1 1 80%;
+    }
+
+    &__btn {
+        background: #00bb5b !important;
+        border: none !important;
+        height: 58px !important;
+        border-radius: 6px;
+        font-weight: 700;
+
+        &:hover {
+            background: #04a251 !important;
+        }
+
+        &:active {
+            background: #048c46 !important;
+        }
+    }
+
+    .ant-input {
+        padding: 7px 12px !important;
+        border-radius: 6px;
+        height: 56px;
+        font-size: 15px !important;
+        transition: box-shadow 300ms;
+        font-weight: 600;
+        background: #f2f3f5 !important;
+        border: none !important;
+        box-shadow: 0 0 0 1px #2f8870;
+
+        &::placeholder {
+            color: #8f9eb4;
+        }
+    }
+
+    .ant-input:hover {
+        box-shadow: 0 0 0 1px #3ea252;
+    }
+
+    .ant-input:focus {
+        height: 56px;
+        box-shadow: 0 0 0 2px #00bb5b;
+    }
+
+    &__parameters {
+        &-form {
+            padding: 16px 24px;
+            border-radius: 6px;
+
+            .ant-form-item:last-of-type {
+                margin-bottom: 0;
+            }
+
+            .ant-form-item-label {
+                font-weight: 600;
+                padding-right: 16px;
+            }
+        }
+
+        &-input {
+            .ant-input {
+                padding: 7px 12px !important;
+                border-radius: 6px;
+                transition: box-shadow 300ms;
+                background: #f2f3f5 !important;
+                border: none !important;
+                box-shadow: 0 0 0 1px #2f8870;
+
+                &::placeholder {
+                    color: #8f9eb4;
+                }
+            }
+
+            .ant-input:hover {
+                box-shadow: 0 0 0 1px #3ea252;
+            }
+
+            .ant-input:focus {
+                box-shadow: 0 0 0 2px #00bb5b;
+            }
+        }
+
+        &-icon {
+            margin-right: 4px;
+        }
+
+        &-btn {
+            background: #f2f3f5 !important;
+            min-width: 44px;
+            margin: 0 8px;
+            height: 58px !important;
+            border-radius: 6px !important;
+            border-color: #2f8870;
+
+            &:hover {
+                border-color: #3ea252;
+            }
+
+            &:focus {
+                border-color: #00bb5b;
+            }
+        }
+    }
+}
