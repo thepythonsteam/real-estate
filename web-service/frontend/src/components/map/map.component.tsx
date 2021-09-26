@@ -40,19 +40,22 @@ const HeatLayer: FC<HeatLayerProps> = ({ color, coordinates }) => {
 export type MapProps = {
     address: string;
     data: {
-        [layerColor: string]: [number, number][];
+        objectCoordinates: [number, number];
+        heatmap: {
+            [layerColor: string]: [number, number][];
+        };
     };
 };
 
 export const Map = memo<MapProps>(({ address, data }) => {
     const heatLayers = useMemo(() => {
-        return Object.entries(data).map(([layerColor, coordinates]) => (
+        return Object.entries(data.heatmap).map(([layerColor, coordinates]) => (
             <HeatLayer key={layerColor} color={layerColor} coordinates={coordinates} />
         ));
     }, [data]);
 
     return (
-        <MapContainer style={{ width: '100%', height: 600 }} center={[55.7558, 37.6173]} zoom={13}>
+        <MapContainer style={{ width: '100%', height: 600 }} center={data.objectCoordinates} zoom={13}>
             <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
@@ -60,7 +63,7 @@ export const Map = memo<MapProps>(({ address, data }) => {
 
             {heatLayers}
 
-            <Marker position={[55.7558, 37.6173]}>
+            <Marker position={data.objectCoordinates}>
                 <Popup>{address}</Popup>
             </Marker>
         </MapContainer>

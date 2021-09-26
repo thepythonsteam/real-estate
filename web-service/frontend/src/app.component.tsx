@@ -1,6 +1,6 @@
 import { notification } from 'antd';
 import axios from 'axios';
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import './app.component.scss';
 import { DataEntry } from './components/data-entry/data-entry.component';
 import { Results, ResultsProps } from './components/results/results.component';

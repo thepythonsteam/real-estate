@@ -1,7 +1,8 @@
 import pandas as pd
+import json
 
-def get_heatmap_data():
-    df = pd.read_csv('./map_points.csv')
+def generate_heatmap_data():
+    df = pd.read_csv('./files/map_points.csv')
 
     min_cost = min(df['per_square_meter_price'])
     max_cost = max(df['per_square_meter_price'])
@@ -28,9 +29,24 @@ def get_heatmap_data():
         else:
             r2.append([df['lat'][i], df['lng'][i]])
 
-    return {
+    result = {
         colors[0]: r1,
         colors[1]: r2,
         colors[2]: r3
     }
+
+
+    with open('./files/heatmap.json', 'w') as outfile:
+        json.dump(result, outfile)
+
+    print('Successfully generated heatmap.json...')
+
+
+def get_heatmap_data():
+    result = None
+
+    with open('./files/heatmap.json', 'r') as outfile:
+        result = json.load(outfile)
+
+    return result
 
